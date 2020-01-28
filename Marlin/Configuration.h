@@ -22,7 +22,7 @@
 #pragma once
 
 //----------------------------------------------------------
-// BEGIN: For SK-Go & SK-Mini 
+// BEGIN: For SK-Go & SK-Mini
 //----------------------------------------------------------
 
 // To use TMC2209 on SKR v1.3, the DIAG pin of TMC2209 at Z slot MUST be removed for endstop to work
@@ -44,7 +44,7 @@
 
 // Use one of the above defininition to change extruder setup
 #define SK_MODEL              SK_GO_USING_BMG
-#define SK_Z_HEIGHT           300     // SK-Mini: 250 or 300. SK-Go: 300 or 350.
+#define SK_Z_HEIGHT           350     // SK-Mini: 250 or 300. SK-Go: 300 or 350.
 
 // Comment it for direct extrusion. Uncomment for bowden setup.
 // #define BOWDEN_EXTRUSION
@@ -71,7 +71,7 @@
 
 
 //----------------------------------------------------------
-// END: For SK-Go & SK-Mini 
+// END: For SK-Go & SK-Mini
 //----------------------------------------------------------
 
 
@@ -730,7 +730,7 @@
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
 #define X_MIN_ENDSTOP_INVERTING SK_X_ENDSTOP // Set to true to invert the logic of the endstop.
 #define Y_MIN_ENDSTOP_INVERTING SK_Y_ENDSTOP // Set to true to invert the logic of the endstop.
-#define Z_MIN_ENDSTOP_INVERTING SK_Z_ENDSTOP 
+#define Z_MIN_ENDSTOP_INVERTING SK_Z_ENDSTOP
 
 #define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Y_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
@@ -931,7 +931,7 @@
     #define DEFAULT_XJERK 5.0
     #define DEFAULT_YJERK 5.0
   #endif
-  
+
   #define DEFAULT_ZJERK  0.3
 
   //#define LIMITED_JERK_EDITING        // Limit edit via M205 or LCD to DEFAULT_aJERK * 2
@@ -1190,7 +1190,7 @@
 
   #define INVERT_X_DIR true
   #define INVERT_Y_DIR true
-  
+
   #if SK_Z_BELT_EXP
     #define INVERT_Z_DIR true
   #else
@@ -1539,7 +1539,7 @@
 // Homing speeds (mm/m)
 #define HOMING_FEEDRATE_XY (60*60)
 //#define HOMING_FEEDRATE_XY (30*60)    // for 0.9 degree stepper
-#define HOMING_FEEDRATE_Z  (30*60)
+#define HOMING_FEEDRATE_Z  (1000)
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
@@ -1652,7 +1652,7 @@
 
 // Preheat Constants
 #define PREHEAT_1_LABEL       "PLA"
-#define PREHEAT_1_TEMP_HOTEND 210
+#define PREHEAT_1_TEMP_HOTEND 200
 #define PREHEAT_1_TEMP_BED     55
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
