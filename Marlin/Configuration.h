@@ -1085,10 +1085,10 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { 20, 7, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 40, 7, -3.8 }
 
 // Certain types of probes need to stay away from edges
-#define MIN_PROBE_EDGE 10
+#define MIN_PROBE_EDGE 5
 
 // X and Y axis travel speed (mm/m) between probes
 #ifdef BOWDEN_EXTRUSION
@@ -1265,7 +1265,7 @@
   //         and will be shwon in the display after homing.
   //         This can be changed according to your assembly.
   #define X_MIN_POS -5
-  #define Y_MIN_POS -20
+  #define Y_MIN_POS -35
 #endif
 
 #define Z_MIN_POS 0
@@ -1421,7 +1421,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 5
+  #define GRID_MAX_POINTS_X 10
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
@@ -1458,7 +1458,7 @@
 #else
   #define MESH_INSET 30              // Set Mesh bounds as an inset region of the bed
 #endif
-  #define GRID_MAX_POINTS_X 5      // Don't use more than 15 points per axis, implementation limited.
+  #define GRID_MAX_POINTS_X 10      // Don't use more than 15 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   #define UBL_MESH_EDIT_MOVES_Z     // Sophisticated users prefer no movement of nozzle
@@ -1891,7 +1891,7 @@
 //
 //  Set this option if CLOCKWISE causes values to DECREASE
 //
-#define REVERSE_ENCODER_DIRECTION
+//#define REVERSE_ENCODER_DIRECTION
 
 //
 // This option reverses the encoder direction for navigating LCD menus.
