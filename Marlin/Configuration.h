@@ -1085,7 +1085,7 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { 40, 7, -3.8 }
+#define NOZZLE_TO_PROBE_OFFSET { 40, 7, -3.375 }
 
 // Certain types of probes need to stay away from edges
 #define MIN_PROBE_EDGE 5
@@ -1265,7 +1265,7 @@
   //         and will be shwon in the display after homing.
   //         This can be changed according to your assembly.
   #define X_MIN_POS -5
-  #define Y_MIN_POS -35
+  #define Y_MIN_POS -25
 #endif
 
 #define Z_MIN_POS 0
@@ -1421,7 +1421,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 10
+  #define GRID_MAX_POINTS_X 5
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
@@ -1451,14 +1451,14 @@
   //========================= Unified Bed Leveling ============================
   //===========================================================================
 
-  //#define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh
+  #define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh
 
 #if (SK_MODEL <= SK_MINI_USING_TITAN)
   #define MESH_INSET 10              // Set Mesh bounds as an inset region of the bed
 #else
   #define MESH_INSET 30              // Set Mesh bounds as an inset region of the bed
 #endif
-  #define GRID_MAX_POINTS_X 10      // Don't use more than 15 points per axis, implementation limited.
+  #define GRID_MAX_POINTS_X 5      // Don't use more than 15 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   #define UBL_MESH_EDIT_MOVES_Z     // Sophisticated users prefer no movement of nozzle
@@ -1488,9 +1488,9 @@
 #define LCD_BED_LEVELING
 
 #if ENABLED(LCD_BED_LEVELING)
-  #define MESH_EDIT_Z_STEP  0.025 // (mm) Step size while manually probing Z axis.
-  #define LCD_PROBE_Z_RANGE 4     // (mm) Z Range centered on Z_MIN_POS for LCD Z adjustment
-  //#define MESH_EDIT_MENU        // Add a menu to edit mesh points
+  #define MESH_EDIT_Z_STEP  0.05 // (mm) Step size while manually probing Z axis.
+  #define LCD_PROBE_Z_RANGE 1     // (mm) Z Range centered on Z_MIN_POS for LCD Z adjustment
+  #define MESH_EDIT_MENU        // Add a menu to edit mesh points
 #endif
 
 // Add a menu item to move between bed corners for manual bed adjustment
@@ -1654,7 +1654,7 @@
 // Preheat Constants
 #define PREHEAT_1_LABEL       "PLA"
 #define PREHEAT_1_TEMP_HOTEND 200
-#define PREHEAT_1_TEMP_BED     55
+#define PREHEAT_1_TEMP_BED     60
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
 #define PREHEAT_2_LABEL       "ABS"
