@@ -1085,7 +1085,7 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { -3, 60, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { -3, 60, -3.975 }
 
 // Certain types of probes need to stay away from edges
 #define MIN_PROBE_EDGE 0
@@ -1458,7 +1458,7 @@
 #else
   #define MESH_INSET 0              // Set Mesh bounds as an inset region of the bed
 #endif
-  #define GRID_MAX_POINTS_X 8      // Don't use more than 15 points per axis, implementation limited.
+  #define GRID_MAX_POINTS_X 10      // Don't use more than 15 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   #define UBL_MESH_EDIT_MOVES_Z     // Sophisticated users prefer no movement of nozzle
