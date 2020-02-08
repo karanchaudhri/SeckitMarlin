@@ -34,14 +34,14 @@
  * Verbose version identifier which should contain a reference to the location
  * from where the binary was downloaded or the source code was compiled.
  */
-//#define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION " (Github)"
+// #define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION " (Github)"
 
 /**
  * The STRING_DISTRIBUTION_DATE represents when the binary file was built,
  * here we define this default string as the date where the latest release
  * version was tagged.
  */
-//#define STRING_DISTRIBUTION_DATE "2020-01-31"
+#define STRING_DISTRIBUTION_DATE "2019-11-16"
 
 /**
  * Defines a generic printer name to be output to the LCD after booting Marlin.
@@ -65,7 +65,7 @@
  * The WEBSITE_URL is the location where users can get more information such as
  * documentation about a specific Marlin release.
  */
-//#define WEBSITE_URL "http://marlinfw.org"
+#define WEBSITE_URL "https://seckit3dp.design"
 
 /**
  * Set the vendor info the serial USB interface, if changable
@@ -73,4 +73,4 @@
  */
 //#define  USB_DEVICE_VENDOR_ID           0x0000
 //#define  USB_DEVICE_PRODUCT_ID          0x0000
-//#define  USB_DEVICE_MANUFACTURE_NAME    WEBSITE_URL
+#define  USB_DEVICE_MANUFACTURE_NAME    WEBSITE_URL
