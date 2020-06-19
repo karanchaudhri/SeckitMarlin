@@ -869,7 +869,7 @@
  * vibration and surface artifacts. The algorithm adapts to provide the best possible step smoothing at the
  * lowest stepping frequencies.
  */
-//#define ADAPTIVE_STEP_SMOOTHING
+#define ADAPTIVE_STEP_SMOOTHING
 
 /**
  * Custom Microstepping
@@ -1474,14 +1474,14 @@
   //#define BABYSTEP_WITHOUT_HOMING
   //#define BABYSTEP_XY                     // Also enable X/Y Babystepping. Not supported on DELTA!
   #define BABYSTEP_INVERT_Z false           // Change if Z babysteps should go the other way
-  #define BABYSTEP_MULTIPLICATOR_Z  10       // Babysteps are very small. Increase for faster motion.
+  #define BABYSTEP_MULTIPLICATOR_Z  5       // Babysteps are very small. Increase for faster motion.
   #define BABYSTEP_MULTIPLICATOR_XY 1
 
   #define DOUBLECLICK_FOR_Z_BABYSTEPPING  // Double-click on the Status Screen for Z Babystepping.
   #if ENABLED(DOUBLECLICK_FOR_Z_BABYSTEPPING)
     #define DOUBLECLICK_MAX_INTERVAL 1250   // Maximum interval between clicks, in milliseconds.
                                             // Note: Extra time may be added to mitigate controller latency.
-    //#define BABYSTEP_ALWAYS_AVAILABLE     // Allow babystepping at all times (not just during movement).
+    #define BABYSTEP_ALWAYS_AVAILABLE     // Allow babystepping at all times (not just during movement).
     //#define MOVE_Z_WHEN_IDLE              // Jump to the move Z menu on doubleclick when printer is idle.
     #if ENABLED(MOVE_Z_WHEN_IDLE)
       #define MOVE_Z_IDLE_MULTIPLICATOR 1   // Multiply 1mm by this factor for the move step size.
@@ -1518,7 +1518,7 @@
 #define LIN_ADVANCE
 #if ENABLED(LIN_ADVANCE)
   //#define EXTRA_LIN_ADVANCE_K // Enable for second linear advance constants
-  #define LIN_ADVANCE_K 0    // Unit: mm compression per 1mm/s extruder speed
+  #define LIN_ADVANCE_K 0.06    // Unit: mm compression per 1mm/s extruder speed
   #define LA_DEBUG            // If enabled, this will generate debug information output over USB.
 #endif
 
@@ -1529,12 +1529,12 @@
  * Override if the automatically selected points are inadequate.
  */
 #if EITHER(AUTO_BED_LEVELING_3POINT, AUTO_BED_LEVELING_UBL)
-  #define PROBE_PT_1_X 8
-  #define PROBE_PT_1_Y -25
-  #define PROBE_PT_2_X 305
-  #define PROBE_PT_2_Y -25
-  #define PROBE_PT_3_X 150
-  #define PROBE_PT_3_Y 232
+//  #define PROBE_PT_1_X 8
+//  #define PROBE_PT_1_Y -25
+//  #define PROBE_PT_2_X 305
+//  #define PROBE_PT_2_Y -25
+//  #define PROBE_PT_3_X 150
+//  #define PROBE_PT_3_Y 232
 #endif
 
 /**
@@ -1555,17 +1555,17 @@
  * the probe to be unable to reach any points.
  */
 #if PROBE_SELECTED && !IS_KINEMATIC
-  #define MIN_PROBE_EDGE_LEFT MIN_PROBE_EDGE
-  #define MIN_PROBE_EDGE_RIGHT MIN_PROBE_EDGE
-  #define MIN_PROBE_EDGE_FRONT MIN_PROBE_EDGE
-  #define MIN_PROBE_EDGE_BACK MIN_PROBE_EDGE
+//  #define MIN_PROBE_EDGE_LEFT MIN_PROBE_EDGE
+//  #define MIN_PROBE_EDGE_RIGHT MIN_PROBE_EDGE
+//  #define MIN_PROBE_EDGE_FRONT MIN_PROBE_EDGE
+//  #define MIN_PROBE_EDGE_BACK MIN_PROBE_EDGE
 #endif
 
 #if EITHER(MESH_BED_LEVELING, AUTO_BED_LEVELING_UBL)
   // Override the mesh area if the automatic (max) area is too large
-  #define MESH_MIN_X 10
-  #define MESH_MIN_Y 45
-  #define MESH_MAX_X 290//X_BED_SIZE - (MESH_INSET)
+  #define MESH_MIN_X 12
+  #define MESH_MIN_Y 5
+  #define MESH_MAX_X 300//X_BED_SIZE - (MESH_INSET)
   #define MESH_MAX_Y 300
 #endif
 
@@ -1605,9 +1605,9 @@
     #define PTC_MAX_BED_TEMP BED_MAXTEMP
 
     // Park position to wait for probe cooldown
-    #define PTC_PARK_POS_X 0.0F
-    #define PTC_PARK_POS_Y 0.0F
-    #define PTC_PARK_POS_Z 100.0F
+    #define PTC_PARK_POS_X X_MIN_POS
+    #define PTC_PARK_POS_Y Y_MIN_POS
+    #define PTC_PARK_POS_Z 200.0F
 
     // Probe position to probe and wait for probe to reach target temperature
     #define PTC_PROBE_POS_X  90.0F
@@ -1725,7 +1725,7 @@
 
 // The ASCII buffer for serial input
 #define MAX_CMD_SIZE 96
-#define BUFSIZE 8
+#define BUFSIZE 32
 
 // Transmission to Host Buffer Size
 // To save 386 bytes of PROGMEM (and TX_BUFFER_SIZE+3 bytes of RAM) set to 0.
